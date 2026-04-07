@@ -38,7 +38,7 @@
         android:lines="1" />
 
     <TextView
-        android:id="@+id/BDLatLngText"
+        android:id="@+id/MapLatLngText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -46,7 +46,7 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/CustomCoordTypeText"
+        android:id="@+id/MapCoordTypeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"

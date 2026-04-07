@@ -763,12 +763,12 @@ public class JoyStick extends View {
             mListener.onPositionInfo(Double.parseDouble(wgs84Longitude), Double.parseDouble(wgs84Latitude), mAltitude);
 
             // 注意这里在选择位置之后需要刷新地图
-            String customLatLng = (String) ((TextView) view.findViewById(R.id.BDLatLngText)).getText();
+            String customLatLng = (String) ((TextView) view.findViewById(R.id.MapLatLngText)).getText();
             customLatLng = customLatLng.substring(customLatLng.indexOf('[') + 1, customLatLng.indexOf(']'));
             String[] customLatLngStr = customLatLng.split(" ");
             String customLongitude = customLatLngStr[0].substring(customLatLngStr[0].indexOf(':') + 1);
             String customLatitude = customLatLngStr[1].substring(customLatLngStr[1].indexOf(':') + 1);
-            String coordType = ((TextView) view.findViewById(R.id.CustomCoordTypeText)).getText().toString();
+            String coordType = ((TextView) view.findViewById(R.id.MapCoordTypeText)).getText().toString();
             double[] gcjLonLat = MapUtils.toGcj02(Double.parseDouble(customLongitude), Double.parseDouble(customLatitude), coordType);
             mCurMapLngLat = new LatLng(gcjLonLat[1], gcjLonLat[0]);
             resetAmapMap();
@@ -864,7 +864,7 @@ public class JoyStick extends View {
                         list,
                         R.layout.history_item,
                         new String[]{HistoryActivity.KEY_ID, HistoryActivity.KEY_LOCATION, HistoryActivity.KEY_TIME, HistoryActivity.KEY_LNG_LAT_WGS, HistoryActivity.KEY_LNG_LAT_CUSTOM, HistoryActivity.KEY_CUSTOM_COORD_TYPE}, // 与下面数组元素要一一对应
-                        new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.BDLatLngText, R.id.CustomCoordTypeText});
+                        new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.MapLatLngText, R.id.MapCoordTypeText});
                 mRecordListView.setAdapter(simAdapt);
             } catch (Exception e) {
                 Log.e("JOYSTICK", "ERROR - showHistory");

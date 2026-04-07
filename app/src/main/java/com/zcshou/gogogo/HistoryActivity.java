@@ -239,7 +239,7 @@ public class HistoryActivity extends BaseActivity {
                             mAllRecord,
                             R.layout.history_item,
                             new String[]{KEY_ID, KEY_LOCATION, KEY_TIME, KEY_LNG_LAT_WGS, KEY_LNG_LAT_CUSTOM, KEY_CUSTOM_COORD_TYPE}, // 与下面数组元素要一一对应
-                            new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.BDLatLngText, R.id.CustomCoordTypeText});
+                            new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.MapLatLngText, R.id.MapCoordTypeText});
                     mRecordListView.setAdapter(simAdapt);
                 } else {
                     List<Map<String, Object>> searchRet = new ArrayList<>();
@@ -254,7 +254,7 @@ public class HistoryActivity extends BaseActivity {
                                 searchRet,
                                 R.layout.history_item,
                                 new String[]{KEY_ID, KEY_LOCATION, KEY_TIME, KEY_LNG_LAT_WGS, KEY_LNG_LAT_CUSTOM, KEY_CUSTOM_COORD_TYPE}, // 与下面数组元素要一一对应
-                                new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.BDLatLngText, R.id.CustomCoordTypeText});
+                                new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.MapLatLngText, R.id.MapCoordTypeText});
                         mRecordListView.setAdapter(simAdapt);
                     } else {
                         GoUtils.DisplayToast(HistoryActivity.this, getResources().getString(R.string.history_error_search));
@@ -263,7 +263,7 @@ public class HistoryActivity extends BaseActivity {
                                 mAllRecord,
                                 R.layout.history_item,
                                 new String[]{KEY_ID, KEY_LOCATION, KEY_TIME, KEY_LNG_LAT_WGS, KEY_LNG_LAT_CUSTOM, KEY_CUSTOM_COORD_TYPE}, // 与下面数组元素要一一对应
-                                new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.BDLatLngText, R.id.CustomCoordTypeText});
+                                new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.MapLatLngText, R.id.MapCoordTypeText});
                         mRecordListView.setAdapter(simAdapt);
                     }
                 }
@@ -335,12 +335,12 @@ public class HistoryActivity extends BaseActivity {
             String customLatitude;
             String name;
             name = (String) ((TextView) view.findViewById(R.id.LocationText)).getText();
-            String customLatLng = (String) ((TextView) view.findViewById(R.id.BDLatLngText)).getText();
+            String customLatLng = (String) ((TextView) view.findViewById(R.id.MapLatLngText)).getText();
             customLatLng = customLatLng.substring(customLatLng.indexOf('[') + 1, customLatLng.indexOf(']'));
             String[] latLngStr = customLatLng.split(" ");
             customLongitude = latLngStr[0].substring(latLngStr[0].indexOf(':') + 1);
             customLatitude = latLngStr[1].substring(latLngStr[1].indexOf(':') + 1);
-            String coordType = ((TextView) view.findViewById(R.id.CustomCoordTypeText)).getText().toString();
+            String coordType = ((TextView) view.findViewById(R.id.MapCoordTypeText)).getText().toString();
 
             // Random offset
             if(sharedPreferences.getBoolean("setting_random_offset", false)) {
@@ -401,7 +401,7 @@ public class HistoryActivity extends BaseActivity {
                         mAllRecord,
                         R.layout.history_item,
                         new String[]{KEY_ID, KEY_LOCATION, KEY_TIME, KEY_LNG_LAT_WGS, KEY_LNG_LAT_CUSTOM, KEY_CUSTOM_COORD_TYPE},
-                        new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.BDLatLngText, R.id.CustomCoordTypeText});
+                        new int[]{R.id.LocationID, R.id.LocationText, R.id.TimeText, R.id.WGSLatLngText, R.id.MapLatLngText, R.id.MapCoordTypeText});
                 mRecordListView.setAdapter(simAdapt);
             } catch (Exception e) {
                 Log.e("HistoryActivity", "ERROR - updateRecordList");

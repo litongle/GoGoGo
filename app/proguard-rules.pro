@@ -19,11 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
--keep class com.baidu.** {*;}
--keep class vi.com.** {*;}
--keep class com.baidu.vi.** {*;}
--dontwarn com.baidu.**
-
 # AMap SDK relies on internal packages, native bindings and reflection.
 # Keep the SDK classes intact for release builds to avoid startup crashes.
 -keep class com.amap.api.** {*;}
