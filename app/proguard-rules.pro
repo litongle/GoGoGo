@@ -24,6 +24,14 @@
 -keep class com.baidu.vi.** {*;}
 -dontwarn com.baidu.**
 
+# AMap SDK relies on internal packages, native bindings and reflection.
+# Keep the SDK classes intact for release builds to avoid startup crashes.
+-keep class com.amap.api.** {*;}
+-keep class com.autonavi.** {*;}
+-keep class com.amap.api.col.** {*;}
+-dontwarn com.amap.api.**
+-dontwarn com.autonavi.**
+
 # OkHttp platform used only on JVM and when Conscrypt and other security providers are available.
 -dontwarn okhttp3.internal.platform.**
 -dontwarn org.conscrypt.**
